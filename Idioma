@@ -1,0 +1,25 @@
+Dentro de la carpeta 'main', en el archivo 'settings.py', hay una variable 'LANGUAGE_CODE' en la que podemos
+definir el idioma de nuestro proyecto. 
+
+Además de esto...
+Cuando creamos un modelo, solemos aplicarle a las clases nombres en inglés siguiendo la tónica general de la programación.
+Si queremos que el nombre de estas clases apareza, por ejemplo en español, podemos aplicar una clase llamada Meta. Esta estará dentro de la clase ya definida, 
+haciendo una traducción explícita del nombre de la misma. 
+
+Ejemplo con una clase llamada Project (proyecto):
+
+class Project(models.Model):
+    class Meta:
+        verbose_name = 'Proyecto'
+        verbose_name_plural = 'Proyectos'
+        ordering = ['code', 'name']
+    name = models.CharField(max_length=250)
+    code = models.SlugField(max_length=4)
+    description = models.TextField()
+    start_date = models.DateField()
+    end_date = models.DateField()
+    
+* Con "ordering" (línea 11), definimos una lista en la que metemos los campos en función
+de los cuales se van a ordenar los objetos de esta clase (en este caso los proyectos). Tal
+y como lo hemos puesto, en caso de igualdad en el campo 'code', pasa a valorar el campo 'name'.
+    
