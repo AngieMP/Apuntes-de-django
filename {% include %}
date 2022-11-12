@@ -1,0 +1,16 @@
+Si queremos incluir un elemento en varias de nuestras hojas html, para no repetir el código (DRY), utilizamos el tag 'include'.
+Para ello, seguiremos los siguientes pasos:
+
+1. Creamos una carpeta "includes" dentro de la carpeta de nuestro proyecto (con el nombre de nuestro proyecto) que se encuentra 
+dentro de la carpeta "templates", donde por rigor en django se ubican las hojas de html. 
+
+2. Dentro de la carpeta "includes", creamos el file de html donde va a ir el trocito de código que queremos pegar en varias hojas. 
+Imagínate que llamamos "trocito.html" a esta hoja. Como django por defecto va a buscar la hoja de html en templates, la ruta comienza 
+desde ahí, y quedaría de la siguiente forma:
+
+  'CarpetaConElNombreDeNuestroProyecto/includes/trocito.html'
+  
+3. Ahora, en cada una de las hojas donde queramos introducir nuestro trocito de código, allá dónde queramos que vaya escribiremos lo
+siguiente:
+  
+  {% include  'CarpetaConElNombreDeNuestroProyecto/includes/trocito.html' %}
